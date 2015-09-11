@@ -220,16 +220,67 @@ var lesson1 = {
 		var y = 10;
 		var z = 10;
 		
-		var height = 50;
-		var width = 200;
-		var depth = 100;
+		var zoom_height = 20;
+		var zoom_width = 20;
+		var zoom_depth = 20;
 		
 		var parent = this;
 		
-		$.each( cubes, function( key, value ) {
-		    console.log( key + ": " + value );
-		    // add cube shapes
-	        var cube = new THREE.Mesh(new THREE.CubeGeometry(width, height, depth), new THREE.MeshLambertMaterial({ color: 0xFF0000 }));
+		var diagraph = 'digraph call_graph {\n' +
+                        'N0[shape=box , label="bar\nInc: 0.179 ms (66.1%)\nExcl: 0.048 ms (17.7%)\n5 total calls", width=3.3, height=2.3, fontsize=33, style=filled, fillcolor=yellow];' +
+                        'N1[shape=box , label="strlen\nInc: 0.023 ms (8.5%)\nExcl: 0.023 ms (8.5%)\n5 total calls", width=1.6, height=1.1, fontsize=28];' +
+                        'N2[shape=box , label="bar@1\nInc: 0.131 ms (48.3%)\nExcl: 0.029 ms (10.7%)\n4 total calls", width=2.0, height=1.4, fontsize=30, style=filled, fillcolor=yellow];' +
+                        'N3[shape=box , label="bar@2\nInc: 0.102 ms (37.6%)\nExcl: 0.024 ms (8.9%)\n3 total calls", width=1.6, height=1.2, fontsize=29, style=filled, fillcolor=yellow];' +
+                        'N4[shape=box , label="bar@3\nInc: 0.078 ms (28.8%)\nExcl: 0.073 ms (26.9%)\n2 total calls", width=5.0, height=3.5, fontsize=35, style=filled, fillcolor=red];' +
+                        'N5[shape=box , label="bar@4\nInc: 0.005 ms (1.8%)\nExcl: 0.005 ms (1.8%)\n1 total calls", width=0.3, height=0.2, fontsize=14, style=filled, fillcolor=yellow];' +
+                        'N6[shape=box , label="foo\nInc: 0.252 ms (93.0%)\nExcl: 0.050 ms (18.5%)\n1 total calls", width=3.4, height=2.4, fontsize=33, style=filled, fillcolor=red];' +
+                        'N7[shape=box , label="xhprof_disable\nInc: 0.004 ms (1.5%)\nExcl: 0.004 ms (1.5%)\n1 total calls", width=0.3, height=0.2, fontsize=12];' +
+                        'N8[shape=octagon , label="Total: 0.271 ms\nXHProf Run (Namespace=xhprof)\nExcl: 0.015 ms (5.5%)\n1 total calls", width=1.0, height=0.7, fontsize=25];' +
+                        'N6 -> N0[arrowsize=2, style="setlinewidth(10)", label="5 calls", headlabel="100.0%", taillabel="88.6%" ];' +
+                        'N6 -> N1[arrowsize=1, style="setlinewidth(1)", label="5 calls", headlabel="100.0%", taillabel="11.4%" ];' +
+                        'N0 -> N2[arrowsize=2, style="setlinewidth(10)", label="4 calls", headlabel="100.0%", taillabel="100.0%" ];' +
+                        'N2 -> N3[arrowsize=2, style="setlinewidth(10)", label="3 calls", headlabel="100.0%", taillabel="100.0%" ];' +
+                        'N3 -> N4[arrowsize=2, style="setlinewidth(10)", label="2 calls", headlabel="100.0%", taillabel="100.0%" ];' +
+                        'N4 -> N5[arrowsize=2, style="setlinewidth(10)", label="1 call", headlabel="100.0%", taillabel="100.0%" ];' +
+                        'N8 -> N6[arrowsize=2, style="setlinewidth(10)", label="1 call", headlabel="100.0%", taillabel="98.4%" ];' +
+                        'N8 -> N7[arrowsize=1, style="setlinewidth(1)", label="1 call", headlabel="100.0%", taillabel="1.6%" ];' +
+                        '}';
+
+                var g = graphlibDot.parse(diagraph);
+                console.log(g.nodes());
+                console.log(g.edges());
+                cubes = g;
+                
+                jQuery.each(g.nodes(), function( index, value ) {
+                    var node = g.node(value);
+                    console.log(node);
+                    switch (node.shape) {
+                        case 'box':
+                        case 'octagon':
+                               var width = zoom_width * node.width;
+                               var height = zoom_width * node.height;                            
+                               var depth = width;
+                                var geometry = new THREE.CubeGeometry(width, height, depth);
+                            break;
+                            
+                    }
+                    switch (node.fillcolor) {
+                        case 'red':
+                                            var material = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
+
+                            break;
+                        case 'blue':
+                                            var material = new THREE.MeshLambertMaterial({ color: 0x0000FF });
+
+                            break;
+                        default:
+                                                                    var material = new THREE.MeshLambertMaterial({ color: 0xfafafa });
+                            
+                    }
+                    
+                    
+                    
+            var cube = new THREE.Mesh(geometry, material);
 	        cube.position.x = x;
 	        cube.position.y = y;
 	        cube.position.z = z;
@@ -237,7 +288,8 @@ var lesson1 = {
 	        console.log(cube);
 	        parent.scene.add(cube);
    	        y = y + height + margin;
-		});
+   	        
+                });
 		
     },
     getRandColor: function() {
