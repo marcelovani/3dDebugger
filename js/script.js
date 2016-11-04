@@ -143,6 +143,14 @@ var lesson1 = {
 					var material = new THREE.MeshLambertMaterial( { color: 0x0000FF } );
 
 					break;
+				case 'green':
+					var material = new THREE.MeshLambertMaterial( { color: 0x00FF00 } );
+
+					break;
+				case 'yellow':
+					var material = new THREE.MeshLambertMaterial( { color: 0xFFF407 } );
+
+					break;
 				default:
 					var material = new THREE.MeshLambertMaterial( { color: 0xfafafa } );
 
