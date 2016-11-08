@@ -1,0 +1,100 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "ae3083f089bd08ad8657eaa8bbf070bd",
+    "content-hash": "a59e6d1c6c00f29f1c7a9972f47b1350",
+    "packages": [
+        {
+            "name": "marcelovani/Xhprof3D",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:marcelovani/Xhprof3D.git",
+                "reference": "origin/master"
+            },
+            "type": "library",
+            "time": "2016-11-04 08:18:38"
+        },
+        {
+            "name": "marcelovani/xhprof",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:marcelovani/xhprof.git",
+                "reference": "origin/master"
+            },
+            "type": "library",
+            "time": "2014-09-05 18:33:19"
+        },
+        {
+            "name": "mouf/nodejs-installer",
+            "version": "v1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/nodejs-installer.git",
+                "reference": "27c68c195a20bf7d144eb865e5e4f3046995eec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/nodejs-installer/zipball/27c68c195a20bf7d144eb865e5e4f3046995eec8",
+                "reference": "27c68c195a20bf7d144eb865e5e4f3046995eec8",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0.0",
+                "ext-openssl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "composer/composer": "*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Mouf\\NodeJsInstaller\\NodeJsPlugin"
+                ],
+                "mouf": {
+                    "logo": "node-js.png"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mouf\\NodeJsInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "An installer package that let's you install NodeJS and NPM as a Composer dependency.",
+            "homepage": "http://mouf-php.com/packages/mouf/nodejs-installer",
+            "keywords": [
+                "installer",
+                "nodejs",
+                "npm"
+            ],
+            "time": "2016-10-07 11:56:33"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "marcelovani/xhprof": 20,
+        "marcelovani/xhprof3d": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

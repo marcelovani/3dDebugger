@@ -58,5 +58,17 @@
 				"forceLocal": false
 			}
 		}
+	},
+	"scripts": {
+		"pre-install-cmd": [
+		],
+		"pre-update-cmd": [
+		],
+		"post-install-cmd": [
+			"./vendor/nodejs/nodejs/bin/npm install"
+		],
+		"post-update-cmd": [
+			"./vendor/nodejs/nodejs/bin/npm install"
+		]
 	}
 }
