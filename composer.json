@@ -1,8 +1,8 @@
 {
 	"name": "marcelovani/3d_debugger",
-	"description": "3D Debugger",
+	"description": "VR 3D Debugger",
 	"type": "project",
-	"license": "GPL-2.0+",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Marcelo Vani",
@@ -49,5 +49,14 @@
 	"require-dev": {
 	},
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": true,
+	"extra": {
+		"mouf": {
+			"nodejs": {
+				"version": "~0.12",
+				"targetDir": "vendor/nodejs/nodejs",
+				"forceLocal": false
+			}
+		}
+	}
 }
