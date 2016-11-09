@@ -42,6 +42,8 @@
 		}
 	],
 	"require": {
+		"composer/installers": "~1.0",
+		"mbostock/d3": "^3.5.17",
 		"marcelovani/xhprof": "dev-master",
 		"marcelovani/Xhprof3D": "dev-master",
 		"mouf/nodejs-installer": "~1.0"
@@ -65,10 +67,10 @@
 		"pre-update-cmd": [
 		],
 		"post-install-cmd": [
-			"./vendor/nodejs/nodejs/bin/npm install"
+			"./scripts/post-install-update.sh"
 		],
 		"post-update-cmd": [
-			"./vendor/nodejs/nodejs/bin/npm install"
+			"./scripts/post-install-update.sh"
 		]
 	}
 }

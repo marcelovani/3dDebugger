@@ -16,7 +16,8 @@
 		"bespoke-leapmotion": "^1.0.0",
 		"jquery-leapmotion": "^0.3.6",
 		"graphviz2svg": "^0.2.0",
-		"coconut-graph": "^1.0.17"
+		"coconut-graph": "^1.0.17",
+		"graphlib-dot": "^0.6.2"
   },
   "devDependencies": {
     "grunt": "^0.4.5"
