@@ -4,6 +4,9 @@ pwd=`pwd`
 # Build js stuff.
 ./vendor/nodejs/nodejs/bin/npm install
 
+mv node_modules ./vendor/marcelovani/xhprof/xhprof_html
+
+exit
 # Remove existing symlinks
 rm -rf ./3d_debugger/third-party/d3; mkdir ./3d_debugger/third-party/d3
 rm -rf ./3d_debugger/third-party/graphlib-dot; mkdir ./3d_debugger/third-party/graphlib-dot
