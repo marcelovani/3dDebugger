@@ -1,6 +1,10 @@
 {
 	"name": "3d_debugger",
 	"description": "VR 3D Debugger",
+	"repository": {
+  	  "type": "git",
+	  "url": "git://github.com/marcelovani/3d_debugger.git"
+	},
 	"version": "0.0.1",
 	"license": "MIT",
 	"author": "Marcelo Vani",
