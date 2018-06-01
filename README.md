@@ -3,8 +3,16 @@
 Requirements
 ============
 - PHP Xhprof
-  - On Mac Os: `brew install homebrew/php/php56-xhprof`.
-  - Remember to enable it in php.ini.
+  - On Mac Os
+    - Using Brew i.e. `brew install homebrew/php/php55-xhprof`
+    - Using Port `port install php55-xhprof` then `port contents php55-xhprof` to show you where xhprof.so is located.
+  - Remember to enable it in php.ini:
+  ```
+  [xhprof]
+  extension=[path]/xhprof.so
+  xhprof.output_dir="/tmp/xhprof"
+  ```
+  
 - Dot (http://www.graphviz.org/)
   - On Mac OS: `brew install graphviz`
 
